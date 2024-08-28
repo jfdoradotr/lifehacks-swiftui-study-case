@@ -15,6 +15,7 @@
 		A942F0372C7EB9CC00BF1E52 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = A942F0362C7EB9CC00BF1E52 /* Question.swift */; };
 		A942F0392C7EC8D700BF1E52 /* Wrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A942F0382C7EC8D700BF1E52 /* Wrapper.swift */; };
 		A942F03B2C7F84E300BF1E52 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A942F03A2C7F84E300BF1E52 /* QuestionView.swift */; };
+		A942F03D2C7F961400BF1E52 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A942F03C2C7F961400BF1E52 /* PreviewData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		A942F0362C7EB9CC00BF1E52 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		A942F0382C7EC8D700BF1E52 /* Wrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wrapper.swift; sourceTree = "<group>"; };
 		A942F03A2C7F84E300BF1E52 /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
+		A942F03C2C7F961400BF1E52 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 		A942F02C2C7EB88E00BF1E52 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				A942F03C2C7F961400BF1E52 /* PreviewData.swift */,
 				A942F02D2C7EB88E00BF1E52 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -153,6 +156,7 @@
 				A942F0392C7EC8D700BF1E52 /* Wrapper.swift in Sources */,
 				A942F0372C7EB9CC00BF1E52 /* Question.swift in Sources */,
 				A942F0272C7EB88D00BF1E52 /* LifehacksApp.swift in Sources */,
+				A942F03D2C7F961400BF1E52 /* PreviewData.swift in Sources */,
 				A942F03B2C7F84E300BF1E52 /* QuestionView.swift in Sources */,
 				A942F0352C7EB97B00BF1E52 /* User.swift in Sources */,
 			);
