@@ -42,6 +42,18 @@ extension Question {
   }
 }
 
+extension Question: Decodable {
+  enum CodingKeys: String, CodingKey {
+    case id = "question_id"
+    case viewCount = "view_count"
+    case answerCount = "answer_count"
+    case isAnswered = "is_answered"
+    case creationDate = "creation_date"
+    case body = "body_markdown"
+    case title, score, owner
+  }
+}
+
 private extension Question {
   mutating func cast(vote: Vote) {
     guard self.vote != vote else { return }

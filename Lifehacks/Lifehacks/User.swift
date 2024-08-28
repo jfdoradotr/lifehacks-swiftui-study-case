@@ -14,3 +14,13 @@ struct User {
   let aboutMe: String?
   let profileImageURL: URL?
 }
+
+extension User: Decodable {
+  enum CodingKeys: String, CodingKey {
+    case id = "user_id"
+    case name = "display_name"
+    case aboutMe = "about_me"
+    case profileImageURL = "profile_image"
+    case reputation
+  }
+}
