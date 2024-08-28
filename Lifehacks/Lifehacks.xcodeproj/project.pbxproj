@@ -12,6 +12,7 @@
 		A942F02B2C7EB88E00BF1E52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A942F02A2C7EB88E00BF1E52 /* Assets.xcassets */; };
 		A942F02E2C7EB88E00BF1E52 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A942F02D2C7EB88E00BF1E52 /* Preview Assets.xcassets */; };
 		A942F0352C7EB97B00BF1E52 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A942F0342C7EB97B00BF1E52 /* User.swift */; };
+		A942F0372C7EB9CC00BF1E52 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = A942F0362C7EB9CC00BF1E52 /* Question.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		A942F02A2C7EB88E00BF1E52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A942F02D2C7EB88E00BF1E52 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A942F0342C7EB97B00BF1E52 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A942F0362C7EB9CC00BF1E52 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,11 +55,12 @@
 		A942F0252C7EB88D00BF1E52 /* Lifehacks */ = {
 			isa = PBXGroup;
 			children = (
-				A942F0262C7EB88D00BF1E52 /* LifehacksApp.swift */,
 				A942F0282C7EB88D00BF1E52 /* ContentView.swift */,
+				A942F0262C7EB88D00BF1E52 /* LifehacksApp.swift */,
+				A942F0362C7EB9CC00BF1E52 /* Question.swift */,
+				A942F0342C7EB97B00BF1E52 /* User.swift */,
 				A942F02A2C7EB88E00BF1E52 /* Assets.xcassets */,
 				A942F02C2C7EB88E00BF1E52 /* Preview Content */,
-				A942F0342C7EB97B00BF1E52 /* User.swift */,
 			);
 			path = Lifehacks;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A942F0292C7EB88D00BF1E52 /* ContentView.swift in Sources */,
+				A942F0372C7EB9CC00BF1E52 /* Question.swift in Sources */,
 				A942F0272C7EB88D00BF1E52 /* LifehacksApp.swift in Sources */,
 				A942F0352C7EB97B00BF1E52 /* User.swift in Sources */,
 			);
