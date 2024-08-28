@@ -18,3 +18,10 @@ struct Question {
   let creationDate: Date
   let owner: User?
 }
+
+extension Question {
+  enum Vote: Int {
+    case up = 1
+    case down = -1
+  }
+}
