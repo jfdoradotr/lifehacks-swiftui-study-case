@@ -14,6 +14,7 @@
 		A942F0352C7EB97B00BF1E52 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A942F0342C7EB97B00BF1E52 /* User.swift */; };
 		A942F0372C7EB9CC00BF1E52 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = A942F0362C7EB9CC00BF1E52 /* Question.swift */; };
 		A942F0392C7EC8D700BF1E52 /* Wrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A942F0382C7EC8D700BF1E52 /* Wrapper.swift */; };
+		A942F03B2C7F84E300BF1E52 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A942F03A2C7F84E300BF1E52 /* QuestionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		A942F0342C7EB97B00BF1E52 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A942F0362C7EB9CC00BF1E52 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		A942F0382C7EC8D700BF1E52 /* Wrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wrapper.swift; sourceTree = "<group>"; };
+		A942F03A2C7F84E300BF1E52 /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				A942F0282C7EB88D00BF1E52 /* ContentView.swift */,
 				A942F0262C7EB88D00BF1E52 /* LifehacksApp.swift */,
 				A942F0362C7EB9CC00BF1E52 /* Question.swift */,
+				A942F03A2C7F84E300BF1E52 /* QuestionView.swift */,
 				A942F0342C7EB97B00BF1E52 /* User.swift */,
 				A942F0382C7EC8D700BF1E52 /* Wrapper.swift */,
 				A942F02A2C7EB88E00BF1E52 /* Assets.xcassets */,
@@ -150,6 +153,7 @@
 				A942F0392C7EC8D700BF1E52 /* Wrapper.swift in Sources */,
 				A942F0372C7EB9CC00BF1E52 /* Question.swift in Sources */,
 				A942F0272C7EB88D00BF1E52 /* LifehacksApp.swift in Sources */,
+				A942F03B2C7F84E300BF1E52 /* QuestionView.swift in Sources */,
 				A942F0352C7EB97B00BF1E52 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
