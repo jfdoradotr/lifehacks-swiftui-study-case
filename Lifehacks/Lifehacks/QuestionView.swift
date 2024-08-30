@@ -13,12 +13,30 @@ struct QuestionView: View {
   var body: some View {
     HStack(alignment: .top, spacing: 16.0) {
       Voting(score: question.score)
+      Info(
+        title: question.title,
+        viewCount: question.viewCount,
+        date: question.creationDate
+      )
+    }
+  }
+}
+
+// MARK: - Info
+
+private extension QuestionView {
+  struct Info: View {
+    let title: String
+    let viewCount: Int
+    let date: Date
+
+    var body: some View {
       VStack(alignment: .leading, spacing: 8.0) {
-        Text(question.title)
+        Text(title)
           .font(.headline)
         Group {
-          Text("Asked on \(question.creationDate.formatted(date: .long, time: .omitted))")
-          Text("Viewed \(question.viewCount.formatted()) times")
+          Text("Asked on \(date.formatted(date: .long, time: .omitted))")
+          Text("Viewed \(viewCount.formatted()) times")
         }
         .font(.caption)
         .foregroundStyle(.secondary)
