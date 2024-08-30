@@ -12,6 +12,18 @@ struct QuestionView: View {
 
   var body: some View {
     HStack(alignment: .top, spacing: 16.0) {
+      VStack(spacing: 8.0) {
+        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+          Image(systemName: "arrowtriangle.up.fill")
+        })
+        Text("\(question.score)")
+          .font(.title)
+          .foregroundStyle(.secondary)
+        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+          Image(systemName: "arrowtriangle.down.fill")
+        })
+
+      }
       VStack(alignment: .leading, spacing: 8.0) {
         Text(question.title)
           .font(.headline)
