@@ -11,14 +11,18 @@ struct QuestionView: View {
   let question: Question
 
   var body: some View {
-    HStack(alignment: .top, spacing: 16.0) {
-      Voting(score: question.score)
-      Info(
-        title: question.title,
-        viewCount: question.viewCount,
-        date: question.creationDate
-      )
+    VStack(alignment: .leading, spacing: 24.0) {
+      HStack(alignment: .top, spacing: 16.0) {
+        Voting(score: question.score)
+        Info(
+          title: question.title,
+          viewCount: question.viewCount,
+          date: question.creationDate
+        )
+      }
+      QuestionBody(text: question.body)
     }
+    .padding(.horizontal, 20.0)
   }
 }
 
@@ -89,6 +93,23 @@ private extension QuestionView.Voting.VoteButton {
     func image(highlighted: Bool) -> Image {
       let imageName = rawValue + (highlighted ? ".fill" : "")
       return Image(systemName: imageName)
+    }
+  }
+}
+
+// MARK: - QuestionBody
+
+private extension QuestionView {
+  struct QuestionBody: View {
+    let text: String
+
+    var body: some View {
+      let markdown = try! AttributedString(
+        markdown: text,
+        options: .init(interpretedSyntax: .inlineOnlyPreservingWhitespace)
+      )
+      Text(markdown)
+        .font(.subheadline)
     }
   }
 }
