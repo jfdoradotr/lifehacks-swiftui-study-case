@@ -119,3 +119,12 @@ private extension QuestionView {
 #Preview {
   QuestionView(question: .preview)
 }
+
+#Preview("Vote Button", traits: .sizeThatFitsLayout) {
+  HStack(spacing: 16) {
+    QuestionView.Voting.VoteButton(buttonType: .up, highlighted: true)
+    QuestionView.Voting.VoteButton(buttonType: .up, highlighted: false)
+    QuestionView.Voting.VoteButton(buttonType: .down, highlighted: true)
+    QuestionView.Voting.VoteButton(buttonType: .down, highlighted: false)
+  }
+}
