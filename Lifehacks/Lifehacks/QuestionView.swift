@@ -14,11 +14,7 @@ struct QuestionView: View {
     VStack(alignment: .leading, spacing: 24.0) {
       HStack(alignment: .top, spacing: 16.0) {
         Voting(score: question.score)
-        Info(
-          title: question.title,
-          viewCount: question.viewCount,
-          date: question.creationDate
-        )
+        Info(question: question)
       }
       QuestionBody(text: question.body)
       if let owner = question.owner {
@@ -53,6 +49,14 @@ private extension QuestionView {
         .foregroundStyle(.secondary)
       }
     }
+  }
+}
+
+private extension QuestionView.Info {
+  init(question: Question) {
+    title = question.title
+    viewCount = question.viewCount
+    date = question.creationDate
   }
 }
 
