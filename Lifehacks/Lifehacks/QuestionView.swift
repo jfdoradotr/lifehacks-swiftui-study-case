@@ -18,11 +18,7 @@ struct QuestionView: View {
       }
       QuestionBody(text: question.body)
       if let owner = question.owner {
-        Owner(
-          name: owner.name,
-          reputation: owner.reputation,
-          profileImageURL: owner.profileImageURL
-        )
+        Owner(user: owner)
       }
     }
     .padding(.horizontal, 20.0)
@@ -159,6 +155,14 @@ private extension QuestionView {
       .clipShape(RoundedRectangle(cornerRadius: 10.0))
       .foregroundStyle(.white)
     }
+  }
+}
+
+private extension QuestionView.Owner {
+  init(user: User) {
+    name = user.name
+    reputation = user.reputation
+    profileImageURL = user.profileImageURL
   }
 }
 
