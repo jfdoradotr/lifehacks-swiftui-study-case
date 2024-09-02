@@ -147,9 +147,7 @@ private extension QuestionView {
         }
       }
       .padding(16)
-      .background(Color.accentColor)
-      .clipShape(RoundedRectangle(cornerRadius: 10.0))
-      .foregroundStyle(.white)
+      .style(color: .accentColor)
     }
   }
 }
