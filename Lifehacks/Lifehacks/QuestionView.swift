@@ -18,7 +18,10 @@ struct QuestionView: View {
       }
       QuestionBody(text: question.body)
       if let owner = question.owner {
-        Owner(user: owner)
+        HStack {
+          Spacer()
+          Owner(user: owner)
+        }
       }
     }
     .padding(.horizontal, 20.0)
