@@ -13,7 +13,12 @@ struct EditProfileView: View {
   var body: some View {
     VStack {
       Header(name: $user.name, profileImageURL: user.profileImageURL)
-      AboutMe(text: $user.aboutMe)
+      AboutMe(
+        text: Binding(
+          get: { user.aboutMe ?? "" },
+          set: { text in user.aboutMe = text }
+        )
+      )
     }
   }
 }
