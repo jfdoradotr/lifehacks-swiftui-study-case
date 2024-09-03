@@ -15,7 +15,7 @@ struct QuestionView: View {
       HStack(alignment: .top, spacing: 16.0) {
         Voting(
           score: question.score,
-          vote: question.vote,
+          vote: .init(vote: question.vote),
           upvote: { question.upvote() },
           downvote: { question.downvote() }
         )
@@ -67,9 +67,13 @@ private extension QuestionView.Info {
 private extension QuestionView {
   struct Voting: View {
     let score: Int
-    let vote: Question.Vote
+    let vote: Vote?
     let upvote: () -> Void
     let downvote: () -> Void
+
+    enum Vote {
+      case up, down
+    }
 
     var body: some View {
       VStack(spacing: 8.0) {
@@ -88,6 +92,16 @@ private extension QuestionView {
         )
       }
 
+    }
+  }
+}
+
+private extension QuestionView.Voting.Vote {
+  init?(vote: Question.Vote?) {
+    switch vote {
+    case .up: self = .up
+    case .down: self = .down
+    case .none: return nil
     }
   }
 }
