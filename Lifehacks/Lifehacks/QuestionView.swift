@@ -15,6 +15,7 @@ struct QuestionView: View {
       HStack(alignment: .top, spacing: 16.0) {
         Voting(
           score: question.score,
+          vote: question.vote,
           upvote: { question.upvote() },
           downvote: { question.downvote() }
         )
@@ -66,16 +67,25 @@ private extension QuestionView.Info {
 private extension QuestionView {
   struct Voting: View {
     let score: Int
+    let vote: Question.Vote
     let upvote: () -> Void
     let downvote: () -> Void
 
     var body: some View {
       VStack(spacing: 8.0) {
-        VoteButton(buttonType: .up, highlighted: false, action: upvote)
+        VoteButton(
+          buttonType: .up,
+          highlighted: vote == .up,
+          action: upvote
+        )
         Text("\(score)")
           .font(.title)
           .foregroundStyle(.secondary)
-        VoteButton(buttonType: .down, highlighted: false, action: downvote)
+        VoteButton(
+          buttonType: .down,
+          highlighted: vote == .down,
+          action: downvote
+        )
       }
 
     }
