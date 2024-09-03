@@ -82,14 +82,21 @@ private extension EditProfileView {
 
 // MARK: - Previews
 
-#Preview {
-  let user = User.preview
+#Preview("Interactive views") {
+  struct PreviewContainer: View {
+    @State private var name: String = User.preview.name
+    @State private var aboutMe: String = User.preview.aboutMe!
 
-  return VStack {
-    EditProfileView.Header(
-      name: .constant(user.name),
-      profileImageURL: user.profileImageURL
-    )
-    EditProfileView.AboutMe(text: .constant(user.aboutMe!))
+    var body: some View {
+      VStack {
+        EditProfileView.Header(
+          name: $name,
+          profileImageURL: User.preview.profileImageURL
+        )
+        EditProfileView.AboutMe(text: $aboutMe)
+      }
+    }
   }
+
+  return PreviewContainer()
 }
