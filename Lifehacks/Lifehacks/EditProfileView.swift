@@ -16,7 +16,7 @@ struct EditProfileView: View {
       AboutMe(
         text: Binding(
           get: { user.aboutMe ?? "" },
-          set: { text in user.aboutMe = text }
+          set: { user.aboutMe = $0 }
         )
       )
     }
