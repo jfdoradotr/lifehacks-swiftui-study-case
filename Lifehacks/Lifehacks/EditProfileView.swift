@@ -11,7 +11,10 @@ struct EditProfileView: View {
   @State var user: User
 
   var body: some View {
-    Header(name: $user.name, profileImageURL: user.profileImageURL)
+    VStack {
+      Header(name: $user.name, profileImageURL: user.profileImageURL)
+      AboutMe(text: $user.aboutMe)
+    }
   }
 }
 
