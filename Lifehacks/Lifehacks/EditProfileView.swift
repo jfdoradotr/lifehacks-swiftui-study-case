@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct EditProfileView: View {
+  @State var user: User
+
   var body: some View {
-    Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    Header(name: $user.name, profileImageURL: user.profileImageURL)
   }
 }
 
