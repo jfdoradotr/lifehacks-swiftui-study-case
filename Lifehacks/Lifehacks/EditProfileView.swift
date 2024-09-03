@@ -83,5 +83,13 @@ private extension EditProfileView {
 // MARK: - Previews
 
 #Preview {
-  EditProfileView()
+  let user = User.preview
+
+  return VStack {
+    EditProfileView.Header(
+      name: .constant(user.name),
+      profileImageURL: user.profileImageURL
+    )
+    EditProfileView.AboutMe(text: .constant(user.aboutMe!))
+  }
 }
