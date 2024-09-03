@@ -174,3 +174,9 @@ private extension QuestionView.Owner {
     QuestionView.Voting.VoteButton(buttonType: .down, highlighted: false)
   }
 }
+
+#Preview("Accessibility", traits: .fixedLayout(width: 320, height: 568)) {
+  QuestionView(question: .preview)
+    .preferredColorScheme(.dark)
+    .dynamicTypeSize(.xxxLarge)
+}
