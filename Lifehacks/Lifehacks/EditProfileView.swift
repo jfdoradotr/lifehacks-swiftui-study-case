@@ -20,6 +20,8 @@ struct EditProfileView: View {
         )
       )
     }
+    .padding(20)
+    .animation(.default, value: user)
   }
 }
 
@@ -91,6 +93,10 @@ private extension EditProfileView {
 }
 
 // MARK: - Previews
+
+#Preview {
+  EditProfileView(user: .preview)
+}
 
 #Preview("Interactive views") {
   struct PreviewContainer: View {
