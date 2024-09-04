@@ -11,17 +11,25 @@ struct TopQuestionsView: View {
   @State var questions: [Question]
 
   var body: some View {
-    List {
-      ForEach(questions) { question in
-        Row(question: question)
+    VStack {
+      EditButton()
+      List {
+        ForEach(questions) { question in
+          Row(question: question)
+        }
+        .onDelete(perform: deleteItems(atOffsets:))
+        .onMove(perform: move(fromOffsets:toOffset:))
       }
-      .onDelete(perform: deleteItems(atOffsets:))
+      .listStyle(.plain)
     }
-    .listStyle(.plain)
   }
 
   private func deleteItems(atOffsets offsets: IndexSet) {
     questions.remove(atOffsets: offsets)
+  }
+
+  private func move(fromOffsets source: IndexSet, toOffset destination: Int) {
+    questions.move(fromOffsets: source, toOffset: destination)
   }
 }
 
