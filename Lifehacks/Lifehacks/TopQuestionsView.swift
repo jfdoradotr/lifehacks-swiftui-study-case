@@ -43,6 +43,26 @@ private extension TopQuestionsView.Row {
   }
 }
 
+// MARK: - Details
+
+private extension TopQuestionsView.Row {
+  struct Details: View {
+    let viewCount: Int
+    let date: Date
+    let name: String
+
+    var body: some View {
+      VStack(alignment: .leading, spacing: 4.0) {
+        Text("Viewed \(viewCount.formatted()) times")
+        Text("Asked on \(date.formatted(date: .long, time: .omitted))")
+        Text(name)
+      }
+      .font(.caption)
+      .foregroundStyle(.secondary)
+    }
+  }
+}
+
 // MARK: - Previews
 
 #Preview {
