@@ -48,6 +48,8 @@ private extension SettingsView {
       } label: {
         HStack {
           Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
+            .font(.title)
+            .foregroundStyle(isSelected ? theme.accentColor : .secondary)
           Text(theme.name)
         }
       }
