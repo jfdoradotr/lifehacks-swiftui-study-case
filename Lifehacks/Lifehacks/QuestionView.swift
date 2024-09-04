@@ -45,8 +45,8 @@ private extension QuestionView {
         Text(title)
           .font(.headline)
         Group {
-          Text("Asked on \(date.formatted(date: .long, time: .omitted))")
-          Text("Viewed \(viewCount.formatted()) times")
+          Text(date: date)
+          Text(viewCount: viewCount)
         }
         .font(.caption)
         .foregroundStyle(.secondary)
