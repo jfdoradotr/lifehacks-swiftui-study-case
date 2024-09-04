@@ -51,6 +51,8 @@ private extension SettingsView {
           Text(theme.name)
         }
       }
+      .font(.headline)
+      .foregroundStyle(.primary)
     }
   }
 }
