@@ -98,6 +98,9 @@ private extension TopQuestionsView.Row {
 
 // MARK: - Previews
 
-#Preview {
-  TopQuestionsView()
+#Preview("Rows") {
+  VStack(alignment: .leading) {
+    TopQuestionsView.Row(question: .preview)
+    TopQuestionsView.Row(question: .unanswered)
+  }
 }
