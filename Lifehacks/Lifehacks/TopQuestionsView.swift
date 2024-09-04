@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct TopQuestionsView: View {
+  let questions: [Question]
+
   var body: some View {
-    Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    List(questions) { question in
+      Row(question: question)
+    }
+    .listStyle(.plain)
   }
 }
 
@@ -97,6 +102,10 @@ private extension TopQuestionsView.Row {
 }
 
 // MARK: - Previews
+
+#Preview {
+  TopQuestionsView(questions: .preview)
+}
 
 #Preview("Rows") {
   VStack(alignment: .leading) {
