@@ -18,6 +18,7 @@ struct Question: Identifiable, Votable {
   let owner: User?
   var score: Int
   var vote: Vote?
+  let answers: [Answer]
 }
 
 extension Question: Decodable {
@@ -28,7 +29,7 @@ extension Question: Decodable {
     case isAnswered = "is_answered"
     case creationDate = "creation_date"
     case body = "body_markdown"
-    case title, score, owner
+    case title, score, owner, answers
   }
 
   init(from decoder: any Decoder) throws {
@@ -41,6 +42,7 @@ extension Question: Decodable {
     isAnswered = try container.decode(Bool.self, forKey: .isAnswered)
     creationDate = try container.decode(Date.self, forKey: .creationDate)
     body = try container.decode(String.self, forKey: .body)
+    answers = try container.decode([Answer].self, forKey: .answers)
     do {
       owner = try container.decodeIfPresent(User.self, forKey: .owner)
     } catch User.DecodingError.userDoesNotExist {

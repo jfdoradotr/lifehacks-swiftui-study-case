@@ -38,7 +38,8 @@ extension Question {
       body: Question.preview.body,
       creationDate: Question.preview.creationDate,
       owner: Question.preview.owner,
-      score: Question.preview.score
+      score: Question.preview.score,
+      answers: Question.preview.answers
     )
   }
 }
@@ -53,5 +54,13 @@ extension [Question] {
     decoder.dateDecodingStrategy = .secondsSince1970
     let wrapper = try! decoder.decode(Wrapper<Question>.self, from: data)
     return wrapper.items
+  }
+}
+
+// MARK: - Answer
+
+extension Answer {
+  static var preview: Answer {
+    Question.preview.answers[0]
   }
 }
