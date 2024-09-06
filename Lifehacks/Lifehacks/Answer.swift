@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Answer: Identifiable {
+struct Answer: Identifiable, Votable {
   let id: Int
   let body: String
   let creationDate: Date
@@ -16,14 +16,6 @@ struct Answer: Identifiable {
   var score: Int
   var vote: Vote?
 }
-
-extension Answer {
-  enum Vote: Int {
-    case up = 1
-    case down = -1
-  }
-}
-
 
 extension Answer: Decodable {
   enum CodingKeys: String, CodingKey {
