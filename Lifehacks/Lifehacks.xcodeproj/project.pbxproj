@@ -74,6 +74,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A9094A0C2C8BB94B00A68706 /* Questions and Answers */ = {
+			isa = PBXGroup;
+			children = (
+				A9094A002C89691F00A68706 /* Answer.swift */,
+				A942F0362C7EB9CC00BF1E52 /* Question.swift */,
+				A9094A0A2C8BB4D100A68706 /* QuestionView.AnswerDetails.swift */,
+				A9094A082C8BB3E700A68706 /* QuestionView.QuestionDetails.swift */,
+				A942F03A2C7F84E300BF1E52 /* QuestionView.swift */,
+				A9094A062C8B9E9800A68706 /* QuestionView.Voting.swift */,
+				A90949FA2C88022400A68706 /* Text+Formatted.swift */,
+				A90949F82C8800CF00A68706 /* TopQuestionsView.swift */,
+				A9094A042C8B9C8400A68706 /* Votable.swift */,
+				A942F0382C7EC8D700BF1E52 /* Wrapper.swift */,
+			);
+			path = "Questions and Answers";
+			sourceTree = "<group>";
+		};
+		A9094A0D2C8BB97900A68706 /* Users and Profiles */ = {
+			isa = PBXGroup;
+			children = (
+				A90949F22C8791F500A68706 /* EditProfileView.swift */,
+				A942F0342C7EB97B00BF1E52 /* User.swift */,
+				A90949F42C87929300A68706 /* View+Visible.swift */,
+			);
+			path = "Users and Profiles";
+			sourceTree = "<group>";
+		};
+		A9094A0E2C8BBA1400A68706 /* Settings and Styling */ = {
+			isa = PBXGroup;
+			children = (
+				A90949FE2C8812DC00A68706 /* SettingsView.swift */,
+				A90949FC2C88122D00A68706 /* Theme.swift */,
+				A90949F02C86702E00A68706 /* View+Style.swift */,
+			);
+			path = "Settings and Styling";
+			sourceTree = "<group>";
+		};
 		A942F01A2C7EB88D00BF1E52 = {
 			isa = PBXGroup;
 			children = (
@@ -93,27 +130,14 @@
 		A942F0252C7EB88D00BF1E52 /* Lifehacks */ = {
 			isa = PBXGroup;
 			children = (
-				A9094A002C89691F00A68706 /* Answer.swift */,
 				A942F0282C7EB88D00BF1E52 /* ContentView.swift */,
-				A90949F22C8791F500A68706 /* EditProfileView.swift */,
 				A90949EE2C866EFE00A68706 /* Image+Circular.swift */,
 				A942F0262C7EB88D00BF1E52 /* LifehacksApp.swift */,
-				A942F0362C7EB9CC00BF1E52 /* Question.swift */,
-				A9094A0A2C8BB4D100A68706 /* QuestionView.AnswerDetails.swift */,
-				A9094A082C8BB3E700A68706 /* QuestionView.QuestionDetails.swift */,
-				A942F03A2C7F84E300BF1E52 /* QuestionView.swift */,
-				A9094A062C8B9E9800A68706 /* QuestionView.Voting.swift */,
-				A90949FE2C8812DC00A68706 /* SettingsView.swift */,
-				A90949FA2C88022400A68706 /* Text+Formatted.swift */,
-				A90949FC2C88122D00A68706 /* Theme.swift */,
-				A90949F82C8800CF00A68706 /* TopQuestionsView.swift */,
-				A942F0342C7EB97B00BF1E52 /* User.swift */,
-				A90949F02C86702E00A68706 /* View+Style.swift */,
-				A90949F42C87929300A68706 /* View+Visible.swift */,
-				A9094A042C8B9C8400A68706 /* Votable.swift */,
-				A942F0382C7EC8D700BF1E52 /* Wrapper.swift */,
 				A942F02A2C7EB88E00BF1E52 /* Assets.xcassets */,
 				A942F02C2C7EB88E00BF1E52 /* Preview Content */,
+				A9094A0C2C8BB94B00A68706 /* Questions and Answers */,
+				A9094A0E2C8BBA1400A68706 /* Settings and Styling */,
+				A9094A0D2C8BB97900A68706 /* Users and Profiles */,
 			);
 			path = Lifehacks;
 			sourceTree = "<group>";
