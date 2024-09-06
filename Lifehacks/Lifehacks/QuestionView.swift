@@ -58,7 +58,6 @@ extension QuestionView {
         }
       }
       .padding(16)
-      .style(color: .accentColor)
     }
   }
 }
