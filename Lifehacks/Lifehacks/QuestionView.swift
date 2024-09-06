@@ -106,7 +106,7 @@ private extension QuestionView {
 }
 
 private extension QuestionView.Voting.Vote {
-  init?(vote: Question.Vote?) {
+  init?(vote: Lifehacks.Vote?) {
     switch vote {
     case .up: self = .up
     case .down: self = .down
