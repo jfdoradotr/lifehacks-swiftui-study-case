@@ -11,30 +11,43 @@ struct QuestionView: View {
   @State var question: Question
 
   var body: some View {
-    VStack(alignment: .leading, spacing: 24.0) {
-      HStack(alignment: .top, spacing: 16.0) {
-        Voting(
-          score: question.score,
-          vote: .init(vote: question.vote),
-          upvote: { question.upvote() },
-          downvote: { question.downvote() },
-          unvote: { question.unvote() }
-        )
-        Info(question: question)
-      }
-      QuestionBody(text: question.body)
-      if let owner = question.owner {
-        Owner(user: owner)
-          .frame(maxWidth: .infinity, alignment: .trailing)
+    QuestionDetails(question: $question)
+      .padding(.horizontal, 20.0)
+  }
+}
+
+// MARK: - QuestionDetails
+
+private extension QuestionView {
+  struct QuestionDetails: View {
+    @Binding var question: Question
+
+    var body: some View {
+      VStack(alignment: .leading, spacing: 24.0) {
+        HStack(alignment: .top, spacing: 16.0) {
+          QuestionView.Voting(
+            score: question.score,
+            vote: .init(vote: question.vote),
+            upvote: { question.upvote() },
+            downvote: { question.downvote() },
+            unvote: { question.unvote() }
+          )
+          Info(question: question)
+        }
+        QuestionView.MarkdownBody(text: question.body)
+        if let owner = question.owner {
+          QuestionView.Owner(user: owner)
+            .style(color: .accentColor)
+            .frame(maxWidth: .infinity, alignment: .trailing)
+        }
       }
     }
-    .padding(.horizontal, 20.0)
   }
 }
 
 // MARK: - Info
 
-private extension QuestionView {
+private extension QuestionView.QuestionDetails {
   struct Info: View {
     let title: String
     let viewCount: Int
@@ -55,7 +68,7 @@ private extension QuestionView {
   }
 }
 
-private extension QuestionView.Info {
+private extension QuestionView.QuestionDetails.Info {
   init(question: Question) {
     title = question.title
     viewCount = question.viewCount
@@ -63,10 +76,10 @@ private extension QuestionView.Info {
   }
 }
 
-// MARK: - QuestionBody
+// MARK: - MarkdownBody
 
 private extension QuestionView {
-  struct QuestionBody: View {
+  struct MarkdownBody: View {
     let text: String
 
     var body: some View {
@@ -120,8 +133,8 @@ private extension QuestionView.Owner {
 
 // MARK: - Previews
 
-#Preview {
-  QuestionView(question: .preview)
+#Preview("QuestionDetails") {
+  QuestionView.QuestionDetails(question: .constant(.preview))
 }
 
 #Preview("Accessibility", traits: .fixedLayout(width: 320, height: 568)) {
