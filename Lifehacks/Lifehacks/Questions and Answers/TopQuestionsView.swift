@@ -19,6 +19,7 @@ struct TopQuestionsView: View {
       .onMove(perform: move(fromOffsets:toOffset:))
     }
     .listStyle(.plain)
+    .navigationTitle("Top Questions")
   }
 
   private func deleteItems(atOffsets offsets: IndexSet) {
