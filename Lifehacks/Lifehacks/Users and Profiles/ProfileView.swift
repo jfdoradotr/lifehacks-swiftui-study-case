@@ -1,0 +1,61 @@
+//
+//  ProfileView.swift
+//  Lifehacks
+//
+//  Created by Juan Francisco Dorado Torres on 06/09/24.
+//
+
+import SwiftUI
+
+struct ProfileView: View {
+  var body: some View {
+    Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+  }
+}
+
+// MARK: - Header
+
+private extension ProfileView {
+  struct Header: View {
+    let name: String
+    let reputation: Int
+    let profileImageURL: URL?
+    let isMainUser: Bool
+
+    var body: some View {
+      VStack(spacing: 4) {
+        AsyncProfileImage(url: profileImageURL)
+          .frame(width: 144, height: 144)
+        Text(name)
+          .font(.title)
+          .bold()
+          .padding(.top, 12)
+        Text("\(reputation.formatted()) reputation")
+          .font(.headline)
+      }
+      .frame(maxWidth: .infinity)
+      .padding(.vertical, 24)
+      .style(color: isMainUser ? .accentColor : .pizazz, isRounded: false)
+    }
+  }
+}
+
+private extension ProfileView.Header {
+  init(user: User, isMainUser: Bool) {
+    self.init(
+      name: user.name,
+      reputation: user.reputation,
+      profileImageURL: user.profileImageURL,
+      isMainUser: isMainUser
+    )
+  }
+}
+
+// MARK: - Previews
+
+#Preview("Header", traits: .sizeThatFitsLayout) {
+  VStack {
+    ProfileView.Header(user: .preview, isMainUser: true)
+    ProfileView.Header(user: .preview, isMainUser: false)
+  }
+}
