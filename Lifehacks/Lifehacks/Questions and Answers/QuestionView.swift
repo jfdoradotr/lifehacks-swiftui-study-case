@@ -23,6 +23,9 @@ struct QuestionView: View {
     .listStyle(.plain)
     .buttonStyle(.borderless)
     .navigationTitle("Question")
+    .navigationDestination(for: User.self) { user in
+      ProfileView(user: user)
+    }
   }
 }
 
@@ -72,6 +75,24 @@ extension QuestionView.Owner {
     name = user.name
     reputation = user.reputation
     profileImageURL = user.profileImageURL
+  }
+}
+
+// MARK: - OwnerLink
+
+extension QuestionView {
+  struct OwnerLink: View {
+    let user: User?
+
+    var body: some View {
+      if let user {
+        NavigationLink(value: user) {
+          QuestionView.Owner(user: user)
+            .style(color: .accentColor)
+            .frame(maxWidth: .infinity, alignment: .trailing)
+        }
+      }
+    }
   }
 }
 

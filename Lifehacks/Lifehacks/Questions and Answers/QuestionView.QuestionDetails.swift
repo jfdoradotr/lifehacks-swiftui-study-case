@@ -24,11 +24,7 @@ extension QuestionView {
           Info(question: question)
         }
         QuestionView.MarkdownBody(text: question.body)
-        if let owner = question.owner {
-          QuestionView.Owner(user: owner)
-            .style(color: .accentColor)
-            .frame(maxWidth: .infinity, alignment: .trailing)
-        }
+        QuestionView.OwnerLink(user: question.owner)
       }
     }
   }
