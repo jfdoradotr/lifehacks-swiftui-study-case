@@ -73,13 +73,8 @@ private extension EditProfileView {
 
     var body: some View {
       HStack(alignment: .top) {
-        AsyncImage(url: profileImageURL) { image in
-          image
-            .circular(borderColor: .gray)
-        } placeholder: {
-          ProgressView()
-        }
-        .frame(width: 62.0, height: 62.0)
+        AsyncProfileImage(url: profileImageURL, borderColor: .gray)
+          .frame(width: 62.0, height: 62.0)
         VStack(alignment: .leading) {
           TextField("Name", text: $name)
           Divider()
