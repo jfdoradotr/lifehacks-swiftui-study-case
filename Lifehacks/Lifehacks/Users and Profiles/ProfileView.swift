@@ -8,8 +8,21 @@
 import SwiftUI
 
 struct ProfileView: View {
+  let user: User
+
   var body: some View {
-    Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    ScrollView {
+      Header(user: user, isMainUser: isMainUser)
+      Text(user.aboutMe ?? "")
+        .padding(.top, 16)
+        .padding(.horizontal, 20)
+    }
+  }
+}
+
+private extension ProfileView {
+  var isMainUser: Bool {
+    user.id == 0
   }
 }
 
@@ -52,6 +65,10 @@ private extension ProfileView.Header {
 }
 
 // MARK: - Previews
+
+#Preview {
+  ProfileView(user: .preview)
+}
 
 #Preview("Header", traits: .sizeThatFitsLayout) {
   VStack {
