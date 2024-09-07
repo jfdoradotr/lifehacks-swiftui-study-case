@@ -78,7 +78,9 @@ extension QuestionView.Owner {
 // MARK: - Previews
 
 #Preview {
-  QuestionView(question: .preview)
+  NavigationStack {
+    QuestionView(question: .preview)
+  }
 }
 
 #Preview("Accessibility", traits: .fixedLayout(width: 320, height: 568)) {
