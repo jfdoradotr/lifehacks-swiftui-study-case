@@ -45,6 +45,10 @@ struct EditProfileView: View {
       cancelButton
       saveButton
     }
+    .alert("Do you want to discard your edits?", isPresented: $isDiscarding) {
+      Button("Discard Changes", role: .destructive, action: onEditingFinished)
+      Button("Continue editing", role: .cancel, action: {})
+    }
   }
 }
 
