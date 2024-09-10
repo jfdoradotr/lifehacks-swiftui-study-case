@@ -51,6 +51,14 @@ struct EditProfileView: View {
   }
 }
 
+private extension EditProfileView {
+  var isContentEdited: Bool {
+    photosItem != nil
+    || name != user.name
+    || aboutMe != user.aboutMe
+  }
+}
+
 // MARK: - ErrorMessage
 
 private extension EditProfileView {
