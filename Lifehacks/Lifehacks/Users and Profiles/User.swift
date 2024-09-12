@@ -15,7 +15,7 @@ struct User: Equatable, Hashable {
   let profileImageURL: URL?
 }
 
-extension User: Decodable {
+extension User: Codable {
   enum CodingKeys: String, CodingKey {
     case id = "user_id"
     case name = "display_name"
@@ -40,5 +40,14 @@ extension User: Decodable {
     self.name = try container.decode(String.self, forKey: .name)
     self.aboutMe = try container.decodeIfPresent(String.self, forKey: .aboutMe)
     self.profileImageURL = try container.decodeIfPresent(URL.self, forKey: .profileImageURL)
+  }
+
+  func encode(to encoder: any Encoder) throws {
+    var container = encoder.container(keyedBy: CodingKeys.self)
+    try container.encode(self.id, forKey: .id)
+    try container.encode(self.reputation, forKey: .reputation)
+    try container.encode(self.name, forKey: .name)
+    try container.encodeIfPresent(self.aboutMe, forKey: .aboutMe)
+    try container.encodeIfPresent(self.profileImageURL, forKey: .profileImageURL)
   }
 }
