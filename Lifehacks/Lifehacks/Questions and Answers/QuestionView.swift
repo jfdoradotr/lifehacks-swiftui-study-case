@@ -114,5 +114,5 @@ extension QuestionView {
 #Preview("Accessibility", traits: .fixedLayout(width: 320, height: 568)) {
   QuestionView(question: .preview)
     .preferredColorScheme(.dark)
-    .dynamicTypeSize(.xxxLarge)
+    .dynamicTypeSize(.accessibility4)
 }
