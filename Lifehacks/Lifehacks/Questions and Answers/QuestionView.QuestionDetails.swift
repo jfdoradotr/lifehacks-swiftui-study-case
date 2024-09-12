@@ -25,6 +25,7 @@ extension QuestionView {
         }
         QuestionView.MarkdownBody(text: question.body)
         QuestionView.OwnerLink(user: question.owner)
+          .role(.primary)
       }
     }
   }
