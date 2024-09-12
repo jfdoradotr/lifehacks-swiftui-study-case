@@ -14,18 +14,26 @@ extension QuestionView {
     var body: some View {
       VStack(alignment: .leading, spacing: 24.0) {
         HStack(alignment: .top, spacing: 16.0) {
-          QuestionView.Voting(
-            score: question.score,
-            vote: .init(vote: question.vote),
-            upvote: { question.upvote() },
-            downvote: { question.downvote() },
-            unvote: { question.unvote() }
-          )
-          Info(question: question)
+          header
         }
         QuestionView.MarkdownBody(text: question.body)
         QuestionView.OwnerLink(user: question.owner)
       }
+    }
+  }
+}
+
+private extension QuestionView.QuestionDetails {
+  var header: some View {
+    Group {
+      QuestionView.Voting(
+        score: question.score,
+        vote: .init(vote: question.vote),
+        upvote: { question.upvote() },
+        downvote: { question.downvote() },
+        unvote: { question.unvote() }
+      )
+      Info(question: question)
     }
   }
 }
