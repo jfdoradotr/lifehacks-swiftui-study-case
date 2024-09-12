@@ -9,7 +9,7 @@ import SwiftUI
 
 #Preview {
   VStack {
-    Color.accentColor
+    Color.cornflowerBlue
     Color.pizazz
     Color.electricViolet
     Color.blazeOrange
