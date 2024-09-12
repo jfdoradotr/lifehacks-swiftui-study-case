@@ -95,7 +95,7 @@ extension QuestionView {
       if let user {
         NavigationLink(value: user) {
           QuestionView.Owner(user: user)
-            .style(color: .accentColor)
+            .styled()
             .frame(maxWidth: .infinity, alignment: .trailing)
         }
       }
