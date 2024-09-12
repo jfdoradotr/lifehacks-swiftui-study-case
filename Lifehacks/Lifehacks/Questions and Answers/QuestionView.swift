@@ -8,17 +8,19 @@
 import SwiftUI
 
 struct QuestionView: View {
-  @State var question: Question
+  let question: Question
+
+  @EnvironmentObject private var questionsController: QuestionsController
 
   var body: some View {
     ScrollView {
       LazyVStack {
-        QuestionDetails(question: $question)
+        QuestionDetails(question: $questionsController[question.id])
           .padding(.horizontal, 20)
           .padding(.bottom)
         Divider()
           .padding(.leading, 20)
-        ForEach($question.answers) { $answer in
+        ForEach($questionsController[question.id].answers) { $answer in
           AnswerDetails(answer: $answer)
             .padding(.horizontal, 20)
             .padding(.vertical, 24)
