@@ -25,6 +25,7 @@
 		A9094A102C8C103F00A68706 /* AsyncProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9094A0F2C8C103F00A68706 /* AsyncProfileImage.swift */; };
 		A9094A122C8C112C00A68706 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9094A112C8C112C00A68706 /* ProfileView.swift */; };
 		A9094A142C937ACA00A68706 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9094A132C937ACA00A68706 /* SettingsController.swift */; };
+		A9094A162C937EB500A68706 /* QuestionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9094A152C937EB500A68706 /* QuestionsController.swift */; };
 		A942F0272C7EB88D00BF1E52 /* LifehacksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A942F0262C7EB88D00BF1E52 /* LifehacksApp.swift */; };
 		A942F0292C7EB88D00BF1E52 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A942F0282C7EB88D00BF1E52 /* ContentView.swift */; };
 		A942F02B2C7EB88E00BF1E52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A942F02A2C7EB88E00BF1E52 /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 		A9094A0F2C8C103F00A68706 /* AsyncProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncProfileImage.swift; sourceTree = "<group>"; };
 		A9094A112C8C112C00A68706 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		A9094A132C937ACA00A68706 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		A9094A152C937EB500A68706 /* QuestionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsController.swift; sourceTree = "<group>"; };
 		A942F0232C7EB88D00BF1E52 /* Lifehacks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lifehacks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A942F0262C7EB88D00BF1E52 /* LifehacksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifehacksApp.swift; sourceTree = "<group>"; };
 		A942F0282C7EB88D00BF1E52 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			children = (
 				A9094A002C89691F00A68706 /* Answer.swift */,
 				A942F0362C7EB9CC00BF1E52 /* Question.swift */,
+				A9094A152C937EB500A68706 /* QuestionsController.swift */,
 				A9094A0A2C8BB4D100A68706 /* QuestionView.AnswerDetails.swift */,
 				A9094A082C8BB3E700A68706 /* QuestionView.QuestionDetails.swift */,
 				A942F03A2C7F84E300BF1E52 /* QuestionView.swift */,
@@ -254,6 +257,7 @@
 				A90949FF2C8812DC00A68706 /* SettingsView.swift in Sources */,
 				A942F03B2C7F84E300BF1E52 /* QuestionView.swift in Sources */,
 				A9094A122C8C112C00A68706 /* ProfileView.swift in Sources */,
+				A9094A162C937EB500A68706 /* QuestionsController.swift in Sources */,
 				A90949ED2C86336500A68706 /* Color+Previews.swift in Sources */,
 				A90949EF2C866EFE00A68706 /* Image+Circular.swift in Sources */,
 				A90949FD2C88122D00A68706 /* Theme.swift in Sources */,
