@@ -79,4 +79,5 @@ private extension SettingsView.Row {
   NavigationStack {
     SettingsView()
   }
+  .environmentObject(SettingsController())
 }
