@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct TopQuestionsView: View {
-  @State var questions: [Question]
+  @EnvironmentObject private var questionsController: QuestionsController
 
   var body: some View {
     List {
-      ForEach(questions) { question in
+      ForEach(questionsController.questions) { question in
         NavigationLink(value: question) {
           Row(question: question)
         }
@@ -33,11 +33,11 @@ struct TopQuestionsView: View {
   }
 
   private func deleteItems(atOffsets offsets: IndexSet) {
-    questions.remove(atOffsets: offsets)
+    questionsController.questions.remove(atOffsets: offsets)
   }
 
   private func move(fromOffsets source: IndexSet, toOffset destination: Int) {
-    questions.move(fromOffsets: source, toOffset: destination)
+    questionsController.questions.move(fromOffsets: source, toOffset: destination)
   }
 }
 
@@ -129,7 +129,7 @@ private extension TopQuestionsView.Row {
 
 #Preview {
   NavigationStack {
-    TopQuestionsView(questions: .preview)
+    TopQuestionsView()
   }
 }
 
