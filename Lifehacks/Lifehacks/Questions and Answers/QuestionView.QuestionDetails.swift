@@ -10,11 +10,18 @@ import SwiftUI
 extension QuestionView {
   struct QuestionDetails: View {
     @Binding var question: Question
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
     var body: some View {
       VStack(alignment: .leading, spacing: 24.0) {
-        HStack(alignment: .top, spacing: 16.0) {
-          header
+        if dynamicTypeSize.isAccessibilitySize {
+          VStack(alignment: .leading) {
+            header
+          }
+        } else {
+          HStack(alignment: .top, spacing: 16.0) {
+            header
+          }
         }
         QuestionView.MarkdownBody(text: question.body)
         QuestionView.OwnerLink(user: question.owner)
