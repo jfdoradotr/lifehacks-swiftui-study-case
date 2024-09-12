@@ -12,12 +12,7 @@ struct TopQuestionsView: View {
 
   var body: some View {
     Content(questions: $questionsController.questions)
-      .navigationTitle("Top Questions")
-      .toolbar {
-        ToolbarItem(placement: .primaryAction) {
-          EditButton()
-        }
-      }
+      .navigationChrome()
       .navigationDestination(for: Question.self) { question in
         QuestionView(question: question)
       }
@@ -50,6 +45,18 @@ private extension TopQuestionsView {
     private func move(fromOffsets source: IndexSet, toOffset destination: Int) {
       questions.move(fromOffsets: source, toOffset: destination)
     }
+  }
+}
+
+private extension TopQuestionsView.Content {
+  func navigationChrome() -> some View {
+    self
+      .navigationTitle("Top Questions")
+      .toolbar {
+        ToolbarItem(placement: .primaryAction) {
+          EditButton()
+        }
+      }
   }
 }
 
@@ -142,6 +149,7 @@ private extension TopQuestionsView.Content.Row {
 #Preview {
   NavigationStack {
     TopQuestionsView.Content(questions: .constant(.preview))
+      .navigationChrome()
   }
 }
 
