@@ -66,3 +66,9 @@ private extension QuestionView.QuestionDetails.Info {
 #Preview("QuestionDetails") {
   QuestionView.QuestionDetails(question: .constant(.preview))
 }
+
+#Preview("Accessibility", traits: .fixedLayout(width: 320, height: 568)) {
+  QuestionView.QuestionDetails(question: .constant(.preview))
+    .preferredColorScheme(.dark)
+    .dynamicTypeSize(.accessibility4)
+}
