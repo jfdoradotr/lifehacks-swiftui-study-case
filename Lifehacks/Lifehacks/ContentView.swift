@@ -31,3 +31,10 @@ struct ContentView: View {
 #Preview {
   ContentView()
 }
+
+
+#Preview("Vibrant Theme") {
+  ContentView()
+    .theme(.vibrant)
+    .tint(Theme.vibrant.accentColor)
+}
