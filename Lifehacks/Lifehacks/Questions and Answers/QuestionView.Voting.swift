@@ -15,13 +15,20 @@ extension QuestionView {
     let downvote: () -> Void
     let unvote: () -> Void
 
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+
     enum Vote {
       case up, down
     }
 
     var body: some View {
-      VStack(spacing: 8.0) {
-        content
+      if dynamicTypeSize.isAccessibilitySize {
+        HStack { content }
+      } else {
+        VStack(spacing: 8.0) {
+          content
+        }
+        .frame(minWidth: 56.0)
       }
     }
 
