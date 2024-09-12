@@ -21,19 +21,7 @@ extension QuestionView {
 
     var body: some View {
       VStack(spacing: 8.0) {
-        VoteButton(
-          buttonType: .up,
-          highlighted: vote == .up,
-          action: { cast(vote: .up) }
-        )
-        Text("\(score)")
-          .font(.title)
-          .foregroundStyle(.secondary)
-        VoteButton(
-          buttonType: .down,
-          highlighted: vote == .down,
-          action: { cast(vote: .down) }
-        )
+        content
       }
     }
 
@@ -53,6 +41,26 @@ extension QuestionView.Voting.Vote {
     case .up: self = .up
     case .down: self = .down
     case .none: return nil
+    }
+  }
+}
+
+private extension QuestionView.Voting {
+  var content: some View {
+    Group {
+      VoteButton(
+        buttonType: .up,
+        highlighted: vote == .up,
+        action: { cast(vote: .up) }
+      )
+      Text("\(score)")
+        .font(.title)
+        .foregroundStyle(.secondary)
+      VoteButton(
+        buttonType: .down,
+        highlighted: vote == .down,
+        action: { cast(vote: .down) }
+      )
     }
   }
 }
