@@ -24,6 +24,7 @@
 		A9094A0B2C8BB4D100A68706 /* QuestionView.AnswerDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9094A0A2C8BB4D100A68706 /* QuestionView.AnswerDetails.swift */; };
 		A9094A102C8C103F00A68706 /* AsyncProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9094A0F2C8C103F00A68706 /* AsyncProfileImage.swift */; };
 		A9094A122C8C112C00A68706 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9094A112C8C112C00A68706 /* ProfileView.swift */; };
+		A9094A142C937ACA00A68706 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9094A132C937ACA00A68706 /* SettingsController.swift */; };
 		A942F0272C7EB88D00BF1E52 /* LifehacksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A942F0262C7EB88D00BF1E52 /* LifehacksApp.swift */; };
 		A942F0292C7EB88D00BF1E52 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A942F0282C7EB88D00BF1E52 /* ContentView.swift */; };
 		A942F02B2C7EB88E00BF1E52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A942F02A2C7EB88E00BF1E52 /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 		A9094A0A2C8BB4D100A68706 /* QuestionView.AnswerDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.AnswerDetails.swift; sourceTree = "<group>"; };
 		A9094A0F2C8C103F00A68706 /* AsyncProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncProfileImage.swift; sourceTree = "<group>"; };
 		A9094A112C8C112C00A68706 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		A9094A132C937ACA00A68706 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		A942F0232C7EB88D00BF1E52 /* Lifehacks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lifehacks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A942F0262C7EB88D00BF1E52 /* LifehacksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifehacksApp.swift; sourceTree = "<group>"; };
 		A942F0282C7EB88D00BF1E52 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 		A9094A0E2C8BBA1400A68706 /* Settings and Styling */ = {
 			isa = PBXGroup;
 			children = (
+				A9094A132C937ACA00A68706 /* SettingsController.swift */,
 				A90949FE2C8812DC00A68706 /* SettingsView.swift */,
 				A90949FC2C88122D00A68706 /* Theme.swift */,
 				A90949F02C86702E00A68706 /* View+Style.swift */,
@@ -232,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9094A142C937ACA00A68706 /* SettingsController.swift in Sources */,
 				A9094A102C8C103F00A68706 /* AsyncProfileImage.swift in Sources */,
 				A9094A072C8B9E9800A68706 /* QuestionView.Voting.swift in Sources */,
 				A942F0292C7EB88D00BF1E52 /* ContentView.swift in Sources */,
