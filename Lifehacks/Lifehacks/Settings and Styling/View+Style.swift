@@ -32,6 +32,7 @@ struct Style: ViewModifier {
 // MARK: - View+Style
 
 extension View {
+  @available(*, deprecated, message: "Code by be deprecated in favor of changes")
   func style(color: Color, isFilled: Bool = true, isRounded: Bool = true) -> some View {
     modifier(Style(color: color, isFilled: isFilled, isRounded: isRounded))
   }
