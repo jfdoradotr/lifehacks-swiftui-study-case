@@ -11,39 +11,51 @@ struct TopQuestionsView: View {
   @EnvironmentObject private var questionsController: QuestionsController
 
   var body: some View {
-    List {
-      ForEach(questionsController.questions) { question in
-        NavigationLink(value: question) {
-          Row(question: question)
+    Content(questions: $questionsController.questions)
+      .navigationTitle("Top Questions")
+      .toolbar {
+        ToolbarItem(placement: .primaryAction) {
+          EditButton()
         }
       }
-      .onDelete(perform: deleteItems(atOffsets:))
-      .onMove(perform: move(fromOffsets:toOffset:))
-    }
-    .listStyle(.plain)
-    .navigationTitle("Top Questions")
-    .toolbar {
-      ToolbarItem(placement: .primaryAction) {
-        EditButton()
+      .navigationDestination(for: Question.self) { question in
+        QuestionView(question: question)
       }
-    }
-    .navigationDestination(for: Question.self) { question in
-      QuestionView(question: question)
-    }
   }
+}
 
-  private func deleteItems(atOffsets offsets: IndexSet) {
-    questionsController.questions.remove(atOffsets: offsets)
-  }
+// MARK: - Content
 
-  private func move(fromOffsets source: IndexSet, toOffset destination: Int) {
-    questionsController.questions.move(fromOffsets: source, toOffset: destination)
+private extension TopQuestionsView {
+  struct Content: View {
+    @Binding var questions: [Question]
+
+    var body: some View {
+      List {
+        ForEach(questions) { question in
+          NavigationLink(value: question) {
+            Row(question: question)
+          }
+        }
+        .onDelete(perform: deleteItems(atOffsets:))
+        .onMove(perform: move(fromOffsets:toOffset:))
+      }
+      .listStyle(.plain)
+    }
+
+    private func deleteItems(atOffsets offsets: IndexSet) {
+      questions.remove(atOffsets: offsets)
+    }
+
+    private func move(fromOffsets source: IndexSet, toOffset destination: Int) {
+      questions.move(fromOffsets: source, toOffset: destination)
+    }
   }
 }
 
 // MARK: - Row
 
-private extension TopQuestionsView {
+private extension TopQuestionsView.Content {
   struct Row: View {
     let title: String
     let score: Int
@@ -71,7 +83,7 @@ private extension TopQuestionsView {
   }
 }
 
-private extension TopQuestionsView.Row {
+private extension TopQuestionsView.Content.Row {
   init(question: Question) {
     self.init(
       title: question.title,
@@ -87,7 +99,7 @@ private extension TopQuestionsView.Row {
 
 // MARK: - Counter
 
-private extension TopQuestionsView.Row {
+private extension TopQuestionsView.Content.Row {
   struct Counter: View {
     let count: Int
     let label: String
@@ -107,7 +119,7 @@ private extension TopQuestionsView.Row {
 
 // MARK: - Details
 
-private extension TopQuestionsView.Row {
+private extension TopQuestionsView.Content.Row {
   struct Details: View {
     let viewCount: Int
     let date: Date
@@ -129,14 +141,13 @@ private extension TopQuestionsView.Row {
 
 #Preview {
   NavigationStack {
-    TopQuestionsView()
-      .environmentObject(QuestionsController(persistenceController: PersistenceController()))
+    TopQuestionsView.Content(questions: .constant(.preview))
   }
 }
 
 #Preview("Rows") {
   VStack(alignment: .leading) {
-    TopQuestionsView.Row(question: .preview)
-    TopQuestionsView.Row(question: .unanswered)
+    TopQuestionsView.Content.Row(question: .preview)
+    TopQuestionsView.Content.Row(question: .unanswered)
   }
 }
