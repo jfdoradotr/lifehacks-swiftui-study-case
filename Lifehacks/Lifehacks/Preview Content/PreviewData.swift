@@ -50,9 +50,7 @@ extension [Question] {
   static var preview: [Question] {
     let url = Bundle.main.url(forResource: "Questions", withExtension: "json")!
     let data = try! Data(contentsOf: url)
-    let decoder = JSONDecoder()
-    decoder.dateDecodingStrategy = .secondsSince1970
-    let wrapper = try! decoder.decode(Wrapper<Question>.self, from: data)
+    let wrapper = try! JSONDecoder.apiDecoder.decode(Wrapper<Question>.self, from: data)
     return wrapper.items
   }
 }
