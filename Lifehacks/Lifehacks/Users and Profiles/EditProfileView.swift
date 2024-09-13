@@ -20,17 +20,12 @@ struct EditProfileView: View {
   }
 
   var body: some View {
-    ScrollView {
-      Header(
-        name: $model.name,
-        photosItem: $model.photosItem,
-        profileImageURL: nil
-      )
-      .animation(.default, value: model.name)
-      AboutMe(text: $model.aboutMe)
-        .animation(.default, value: model.aboutMe)
-    }
-    .padding(20)
+    Content(
+      profileImageURL: nil,
+      name: $model.name,
+      aboutMe: $model.aboutMe,
+      photosItem: $model.photosItem
+    )
     .navigationTitle("Edit Profile")
     .toolbar {
       cancelButton
@@ -59,6 +54,32 @@ private extension EditProfileView {
   var saveButton: some ToolbarContent {
     ToolbarItem(placement: .confirmationAction) {
       Button("Save", action: onEditingFinished)
+    }
+  }
+}
+
+// MARK: - Content
+
+private extension EditProfileView {
+  struct Content: View {
+    let profileImageURL: URL?
+
+    @Binding var name: String
+    @Binding var aboutMe: String
+    @Binding var photosItem: PhotosPickerItem?
+
+    var body: some View {
+      ScrollView {
+        Header(
+          name: $name,
+          photosItem: $photosItem,
+          profileImageURL: profileImageURL
+        )
+        .animation(.default, value: name)
+        AboutMe(text: $aboutMe)
+          .animation(.default, value: aboutMe)
+      }
+      .padding(20)
     }
   }
 }
