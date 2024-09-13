@@ -86,7 +86,7 @@ private extension EditProfileView {
 
 // MARK: - ErrorMessage
 
-private extension EditProfileView {
+private extension EditProfileView.Content {
   struct ErrorMessage: View {
     let text: String
 
@@ -107,7 +107,7 @@ private extension EditProfileView {
 
 // MARK: - AboutMe
 
-private extension EditProfileView {
+private extension EditProfileView.Content {
   struct AboutMe: View {
     @Binding var text: String
 
@@ -118,7 +118,7 @@ private extension EditProfileView {
           .bold()
         TextEditor(text: $text)
           .frame(height: 200.0)
-        EditProfileView.ErrorMessage("The about me cannot be empty")
+        EditProfileView.Content.ErrorMessage("The about me cannot be empty")
           .visible(text.isEmpty)
       }
     }
@@ -127,7 +127,7 @@ private extension EditProfileView {
 
 // MARK: - Header
 
-private extension EditProfileView {
+private extension EditProfileView.Content {
   struct Header: View {
     @Binding var name: String
     @Binding var photosItem: PhotosPickerItem?
@@ -145,7 +145,7 @@ private extension EditProfileView {
         VStack(alignment: .leading) {
           TextField("Name", text: $name)
           Divider()
-          EditProfileView.ErrorMessage("The name cannot be empty")
+          EditProfileView.Content.ErrorMessage("The name cannot be empty")
             .visible(name.isEmpty)
         }
         .padding(.leading, 16.0)
@@ -169,12 +169,12 @@ private extension EditProfileView {
 
     var body: some View {
       VStack {
-        EditProfileView.Header(
+        EditProfileView.Content.Header(
           name: $name,
           photosItem: .constant(nil),
           profileImageURL: User.preview.profileImageURL
         )
-        EditProfileView.AboutMe(text: $aboutMe)
+        EditProfileView.Content.AboutMe(text: $aboutMe)
       }
     }
   }
