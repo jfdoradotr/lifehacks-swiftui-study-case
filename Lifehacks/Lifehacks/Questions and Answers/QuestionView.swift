@@ -11,29 +11,55 @@ struct QuestionView: View {
   let question: Question
 
   @EnvironmentObject private var questionsController: QuestionsController
+  @StateObject private var model: Model
+
+  init(question: Question) {
+    self.question = question
+    self._model = .init(wrappedValue: Model(question: question))
+  }
 
   var body: some View {
-    ScrollView {
-      LazyVStack {
-        QuestionDetails(question: $questionsController[question.id])
-          .padding(.horizontal, 20)
-          .padding(.bottom)
-        Divider()
-          .padding(.leading, 20)
-        ForEach($questionsController[question.id].answers) { $answer in
-          AnswerDetails(answer: $answer)
+    Content(question: $questionsController[question.id])
+      .navigationTitle("Question")
+      .loading(model.isLoading)
+      .errorAlert(isPresented: $model.showError)
+      .task {
+        await model.loadDetails()
+      }
+      .navigationDestination(for: User.self) { user in
+        ProfileView(user: user)
+      }
+      .onChange(of: model.question) { _, newValue in
+        questionsController[question.id] = newValue
+      }
+  }
+}
+
+// MARK: - Content
+
+private extension QuestionView {
+  struct Content: View {
+    @Binding var question: Question
+
+    var body: some View {
+      ScrollView {
+        LazyVStack {
+          QuestionDetails(question: $question)
             .padding(.horizontal, 20)
-            .padding(.vertical, 24)
-            .id(answer.id)
+            .padding(.bottom)
           Divider()
             .padding(.leading, 20)
+          ForEach($question.answers) { $answer in
+            AnswerDetails(answer: $answer)
+              .padding(.horizontal, 20)
+              .padding(.vertical, 24)
+              .id(answer.id)
+            Divider()
+              .padding(.leading, 20)
+          }
         }
       }
-    }
-    .padding(.top)
-    .navigationTitle("Question")
-    .navigationDestination(for: User.self) { user in
-      ProfileView(user: user)
+      .padding(.top)
     }
   }
 }
@@ -109,12 +135,13 @@ extension QuestionView {
 
 #Preview {
   NavigationStack {
-    QuestionView(question: .preview)
+    QuestionView.Content(question: .constant(.preview))
+      .navigationTitle("Question")
   }
 }
 
 #Preview("Accessibility", traits: .fixedLayout(width: 320, height: 568)) {
-  QuestionView(question: .preview)
+  QuestionView.Content(question: .constant(.preview))
     .preferredColorScheme(.dark)
     .dynamicTypeSize(.accessibility4)
 }
