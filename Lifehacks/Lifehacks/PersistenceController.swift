@@ -27,6 +27,12 @@ final class PersistenceController {
     guard let data = try? Data(contentsOf: .jsonFileURLNamed(.user)) else { return nil }
     return try? JSONDecoder().decode(User.self, from: data)
   }
+
+  func saveProfileImageData(data: Data) throws -> URL {
+    let url = URL.fileURL(name: .profilePicture, extension: "jpeg")
+    try data.write(to: url)
+    return url
+  }
 }
 
 private extension URL {
