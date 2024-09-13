@@ -31,9 +31,13 @@ final class PersistenceController {
 
 private extension URL {
   static func jsonFileURLNamed(_ name: String) -> URL {
+    fileURL(name: name, extension: "json")
+  }
+
+  static func fileURL(name: String, extension: String) -> URL {
     URL.documentsDirectory
       .appending(path: name)
-      .appendingPathExtension("json")
+      .appendingPathExtension(`extension`)
   }
 }
 
