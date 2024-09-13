@@ -10,9 +10,11 @@ import SwiftUI
 
 struct EditProfileView: View {
   let onEditingFinished: () -> Void
-  @StateObject private var model: Model
-
   @State private var isDiscarding: Bool = false
+  
+  @StateObject private var model: Model
+  @EnvironmentObject private var userController: UserController
+
 
   init(user: User, onEditingFinished: @escaping () -> Void) {
     self.onEditingFinished = onEditingFinished
@@ -53,7 +55,14 @@ private extension EditProfileView {
 
   var saveButton: some ToolbarContent {
     ToolbarItem(placement: .confirmationAction) {
-      Button("Save", action: onEditingFinished)
+      Button("Save") {
+        try? userController.save(
+          name: model.name,
+          aboutMe: model.aboutMe,
+          profilePicture: model.profileImageData
+        )
+        onEditingFinished()
+      }
     }
   }
 }
