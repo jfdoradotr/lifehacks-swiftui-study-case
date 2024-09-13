@@ -11,28 +11,53 @@ struct ProfileView: View {
   let user: User
 
   @State private var isEditing = false
+  @StateObject private var model: Model
+  @EnvironmentObject private var userController: UserController
+
+  init(user: User) {
+    self.user = user
+    self._model = .init(wrappedValue: Model(user: user))
+  }
 
   var body: some View {
-    ScrollView {
-      Header(user: user)
-        .role(isMainUser ? .primary : .secondary)
-      Text(user.aboutMe ?? "")
-        .padding(.top, 16)
-        .padding(.horizontal, 20)
-    }
-    .navigationTitle(Text("Profile"))
-    .toolbar {
-      ToolbarItem(placement: .primaryAction) {
-        if isMainUser {
-          Button(action: { isEditing = true }) {
-            Text("Edit")
+    Content(user: displayedUser)
+      .navigationTitle(Text("Profile"))
+      .role(isMainUser ? .primary : .secondary)
+      .loading(model.isLoading)
+      .errorAlert(isPresented: $model.showError)
+      .task {
+        guard !isMainUser else { return }
+        await model.loadAboutMe()
+      }
+      .toolbar {
+        ToolbarItem(placement: .primaryAction) {
+          if isMainUser {
+            Button(action: { isEditing = true }) {
+              Text("Edit")
+            }
           }
         }
       }
-    }
-    .fullScreenCover(isPresented: $isEditing) {
-      NavigationStack {
-        EditProfileView(user: user, onEditingFinished: { isEditing = false })
+      .fullScreenCover(isPresented: $isEditing) {
+        NavigationStack {
+          EditProfileView(user: user, onEditingFinished: { isEditing = false })
+        }
+      }
+  }
+}
+
+// MARK: - Content
+
+private extension ProfileView {
+  struct Content: View {
+    let user: User
+
+    var body: some View {
+      ScrollView {
+        Header(user: user)
+        Text(user.aboutMe ?? "")
+          .padding(.top, 16)
+          .padding(.horizontal, 20)
       }
     }
   }
@@ -40,13 +65,17 @@ struct ProfileView: View {
 
 private extension ProfileView {
   var isMainUser: Bool {
-    user.id == 0
+    user.id == userController.mainUser.id
+  }
+
+  var displayedUser: User {
+    isMainUser ? userController.mainUser : model.user
   }
 }
 
 // MARK: - Header
 
-private extension ProfileView {
+private extension ProfileView.Content {
   struct Header: View {
     let name: String
     let reputation: Int
@@ -70,7 +99,7 @@ private extension ProfileView {
   }
 }
 
-private extension ProfileView.Header {
+private extension ProfileView.Content.Header {
   init(user: User) {
     self.init(
       name: user.name,
@@ -90,8 +119,8 @@ private extension ProfileView.Header {
 
 #Preview("Header", traits: .sizeThatFitsLayout) {
   VStack {
-    ProfileView.Header(user: .preview)
-    ProfileView.Header(user: .preview)
+    ProfileView.Content.Header(user: .preview)
+    ProfileView.Content.Header(user: .preview)
       .role(.secondary)
   }
 }
