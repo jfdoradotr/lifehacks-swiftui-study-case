@@ -40,4 +40,5 @@ private extension URL {
 private extension String {
   static var questions: String { "Questions" }
   static var user: String { "User" }
+  static var profilePicture: String { "ProfilePicture" }
 }
