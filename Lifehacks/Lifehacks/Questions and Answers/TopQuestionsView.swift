@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TopQuestionsView: View {
   @EnvironmentObject private var questionsController: QuestionsController
+  @StateObject private var model = Model()
 
   var body: some View {
     Content(questions: $questionsController.questions)
@@ -16,6 +17,17 @@ struct TopQuestionsView: View {
       .navigationDestination(for: Question.self) { question in
         QuestionView(question: question)
       }
+      .task {
+        guard questionsController.questions.isEmpty else { return }
+        await model.fetchTopQuestions()
+      }
+      .refreshable {
+        await model.fetchTopQuestions()
+      }
+      .onChange(of: model.fetchedQuestions, { oldValue, newValue in
+        guard oldValue != newValue, !newValue.isEmpty else { return }
+        questionsController.questions = newValue
+      })
   }
 }
 
