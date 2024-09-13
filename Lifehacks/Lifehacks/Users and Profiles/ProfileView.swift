@@ -111,9 +111,21 @@ private extension ProfileView.Content.Header {
 
 // MARK: - Previews
 
+private extension ProfileView {
+  init(user: User, model: Model) {
+    self.user = user
+    self._model = .init(wrappedValue: model)
+  }
+}
+
 #Preview {
-  NavigationStack {
-    ProfileView(user: .preview)
+  Group {
+    let model = ProfileView.Model.Preview(user: .preview)
+    let userController = UserController.Preview(mainUser: .preview) as UserController
+    NavigationStack {
+      ProfileView(user: .preview, model: model)
+        .environmentObject(userController)
+    }
   }
 }
 

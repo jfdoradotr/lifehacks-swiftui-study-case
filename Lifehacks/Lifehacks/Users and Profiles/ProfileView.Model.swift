@@ -8,7 +8,7 @@
 import Foundation
 
 extension ProfileView {
-  @MainActor final class Model: ObservableObject {
+  @MainActor class Model: ObservableObject {
     @Published var user: User
     @Published var isLoading = false
     @Published var showError = false
@@ -31,6 +31,14 @@ extension ProfileView {
       } catch {
         showError = true
       }
+    }
+  }
+}
+
+extension ProfileView.Model {
+  class Preview: ProfileView.Model {
+    override func loadAboutMe() async {
+      user.aboutMe = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     }
   }
 }
