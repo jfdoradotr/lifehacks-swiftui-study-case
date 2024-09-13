@@ -21,7 +21,7 @@ struct EditProfileView: View {
 
   var body: some View {
     Content(
-      profileImageURL: nil,
+      profileImageURL: model.profileImageURL,
       name: $model.name,
       aboutMe: $model.aboutMe,
       photosItem: $model.photosItem
